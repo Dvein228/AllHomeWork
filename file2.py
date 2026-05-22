@@ -3,6 +3,9 @@ class Enemy:
         self.name=name
         self.health=health
         self.damage =damage
+    def attack(self, enemy):
+            enemy.hp -= self.damage
+            print(f"{self.name} атакує {enemy.name} на {self.damage} шкоди!")
 
 
 class Character:
@@ -11,7 +14,7 @@ class Character:
         self.health=health
         self.damage= damage
         self.inventory = []
-    def addInInventory(self,item):
+    def add_item(self,item):
         self.inventory.append(item)
     def show_inventory(self):
             print("Інвентар:")
@@ -20,3 +23,6 @@ class Character:
             else:
                 for item in self.inventory:
                     print(f"- {item.name} (цінність: {item.value})")
+    def attack(self, enemy):
+            enemy.hp -= self.damage
+            print(f"{self.name} атакує {enemy.name} на {self.damage} шкоди!")
