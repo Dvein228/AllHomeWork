@@ -97,3 +97,7 @@ class Archer(Character):
 
         self.hp -= damage
         print(self.name, "получил", damage, "урона. HP =", self.hp)
+    def attack(self, enemy):
+        for item in self.inventory:
+            enemy.on_hit((item.size+self.damage)/10)
+            self.inventory.remove(item)
